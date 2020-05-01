@@ -82,7 +82,6 @@ class Player(pygame.sprite.Sprite):
         self.hide_timer = pygame.time.get_ticks()
         self.power = 1
         self.power_time = pygame.time.get_ticks()
-        
         js_count = pygame.joystick.get_count()
         if js_count > 0:
             self.joystick = pygame.joystick.Joystick(0)
@@ -111,8 +110,11 @@ class Player(pygame.sprite.Sprite):
             self.rect.right = WIDTH
         if self.rect.left < 0:
             self.rect.left = 0
-        if self.joystick.get_button(0):
-            self.shoot
+        if player.joystick.get_button(0):
+            self.shoot()
+        axisA = player.joystick.get_axis(0)
+        if axisA == -1:
+            self.speedx = -8
 
     def powerup(self):
         self.power += 1
