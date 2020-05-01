@@ -113,7 +113,8 @@ class Player(pygame.sprite.Sprite):
         if player.joystick.get_button(0):
             self.shoot()
         axisA = player.joystick.get_axis(0)
-        if axisA == -1:
+        print(round(axisA))
+        if round(axisA) == -1:
             self.speedx = -8
 
     def powerup(self):
